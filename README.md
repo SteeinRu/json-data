@@ -27,12 +27,12 @@ If you would like to work with an existing object, rather than parsing a string,
 ```php
 use SteeinJSON\JSON;
 
-$j = new JSON(null, null, $customJSON);
+$object = new JSON(null, null, $customJSON);
 
 
 
 ///Validating Against a Schema
-$j->check($customSchema, [$extraSchemaURI => $extraSchemaData]);
+$object->check($customSchema, [$extraSchemaURI => $extraSchemaData]);
 
 ```
 
