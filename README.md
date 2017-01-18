@@ -18,7 +18,7 @@ $myJson = "
     "item":"value"
   }
 }
-"
+";
 $object = new JSON($myJson);
 ```
 
