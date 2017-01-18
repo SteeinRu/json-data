@@ -11,6 +11,17 @@ use SteeinJSON\Exceptions\SchemaException;
 use SteeinJSON\Exceptions\TypeException;
 use SteeinJSON\Exceptions\ValidationException;
 
+/****
+ * This library is an object-oriented interface that works with data in JSON format Edit
+ *
+ * @package SteeinJSON
+ *
+ * @author      Shamsudin Serderov
+ * @url         https://www.steein.ru
+ *
+ * @copyright   2017 - Steein Inc
+ * @version     7 >=
+ */
 class JSON
 {
 
