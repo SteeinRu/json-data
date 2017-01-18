@@ -4,6 +4,25 @@ This library is an object-oriented interface that works with data in JSON format
 
 ### Usage
 
+#### Example 1
+
+
+```php
+
+use SteeinJSON\JSON;
+
+$myJson = "
+{
+  "steein":
+  {
+    "item":"value"
+  }
+}
+"
+$object = new JSON($myJson);
+```
+
+#### Example 2
 ```php
 
 use SteeinJSON\JSON;
