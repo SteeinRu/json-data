@@ -20,7 +20,7 @@ use SteeinJSON\Exceptions\ValidationException;
  * @url         https://www.steein.ru
  *
  * @copyright   2017 - Steein Inc
- * @version     7 >=
+ * @version     PHP 7 >=
  */
 class JSON
 {
