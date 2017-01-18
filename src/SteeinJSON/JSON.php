@@ -10,6 +10,7 @@ use SteeinJSON\Exceptions\ParseException;
 use SteeinJSON\Exceptions\SchemaException;
 use SteeinJSON\Exceptions\TypeException;
 use SteeinJSON\Exceptions\ValidationException;
+use SteeinJSON\Stub\DummyClass;
 
 /****
  * This library is an object-oriented interface that works with data in JSON format Edit
@@ -22,27 +23,8 @@ use SteeinJSON\Exceptions\ValidationException;
  * @copyright   2017 - Steein Inc
  * @version     PHP 7 >=
  */
-class JSON
+class JSON extends JSONConfig
 {
-
-    /****
-     * Default configuration
-     *
-     * @var array | \ArrayAccess
-    */
-    protected $config =
-        [
-            'encode' =>     JSON_NUMERIC_CHECK      |
-                            JSON_PRETTY_PRINT       |
-                            JSON_UNESCAPED_SLASHES  |
-                            JSON_UNESCAPED_UNICODE  |
-                            JSON_PARTIAL_OUTPUT_ON_ERROR,
-
-            'create-missing' => true,
-
-            'validation-exceptions' => false
-        ];
-
     /***
      * The array to store all the data
      *
@@ -56,7 +38,6 @@ class JSON
      * @var array
     */
     protected $validationErrors = [];
-
 
     /**
      * Create a new object for manipulation
@@ -177,7 +158,10 @@ class JSON
 
     /***
      * Save the object to a file
-    */
+     *
+     * @param null $path
+     * @return string
+     */
     public function save($path = null)
     {
         if(\file_exists($path) == false)
@@ -262,8 +246,6 @@ class JSON
     /**
      * Get a list of errors from the most recent validation attempt
      *
-     * @api
-     *
      * @return array
      */
     public function errors()
@@ -274,8 +256,12 @@ class JSON
     /***
      *  Decodes a JSON string
      *
+     * @param $value
+     * @param int $options
+     * @param int $depth
+     *
      * @return mixed
-    */
+     */
     public function encode($value, $options = 0, $depth = 512)
     {
         return json_encode($value, $options = 0, $depth = 512);
@@ -283,6 +269,11 @@ class JSON
 
     /***
      *  Encodes a JSON string
+     *
+     * @param $json
+     * @param bool $assoc
+     * @param int $depth
+     * @param int $options
      *
      * @return mixed
      */
