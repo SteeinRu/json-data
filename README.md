@@ -20,6 +20,24 @@ $file = __DIR__.'/json/item.json';
 $object->save($file);
 
 ```
+### Working with existing objects
+
+If you would like to work with an existing object, rather than parsing a string, pass this object as the third constructor argument:
+
+```php
+use SteeinJSON\JSON;
+
+$j = new JSON(null, null, $customJSON);
+
+
+
+///Validating Against a Schema
+$j->check($customSchema, [$extraSchemaURI => $extraSchemaData]);
+
+```
+
+
+
 
 
 #### Author: Shamsudin Serderov
