@@ -1,5 +1,5 @@
 <?php
-namespace SteeinJSON;
+namespace SteeinJSON\Stub;
 
 class DummyClass extends \StdClass
 {
