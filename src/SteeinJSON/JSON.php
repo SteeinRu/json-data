@@ -199,7 +199,7 @@ class JSON extends JSONConfig
             foreach ($schemaData as $ref => $data)
             {
                 if (is_string($data) || $schema instanceof DummyClass)
-                    $data = json_decode($data);
+                    $data = $this->decode($data);
                 else
                     throw new TypeException('Schema must be a string or DummyClass object');
 
