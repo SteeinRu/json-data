@@ -5,12 +5,13 @@ include_once '../vendor/autoload.php';
 
 use SteeinJSON\JSON;
 
-$jsons = "{
-  \"example\":{
-    \"item\":\"value\"
-  }
-}";
 
-$json = new JSON($jsons);
+$json = new JSON();
 
-echo $json;
+$json->test->one->two = 's';
+
+echo $json->getObject('test')->getObject('one')->getObject('two');
+
+
+
+//echo $json;

@@ -156,6 +156,33 @@ class JSON extends JSONConfig
         return $this->encode($this->storage, $this->config['encode']) ?: "";
     }
 
+
+    /**
+     * Standard and user-friendly method of getting on the key values
+     *
+     * @param $key
+     * @throws NotFoundException
+     *
+     * @return JSON
+     */
+    public function getObject($key)
+    {
+        if (!isset($this->storage->{$key}))
+        {
+            if (!$this->config['create-missing'])
+                throw new NotFoundException("Key does not exist");
+
+            $this->storage->{$key} = new DummyClass();
+            return new self(null, $this->config, $this->storage->{$key});
+        }
+
+        if (is_object($this->storage->{$key}))
+            return new self(null, $this->config, $this->storage->{$key});
+        else
+            return $this->storage->{$key};
+    }
+
+
     /***
      * Save the object to a file
      *
