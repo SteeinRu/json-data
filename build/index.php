@@ -7,8 +7,11 @@ use SteeinJSON\JSON;
 
 
 
-$json = new JSON();
+$foo = new JSON;
 
-$json->test->one->two = 's';
 
-echo $json->getObject('test')->getObject('one')->getObject('two');
+
+
+echo '<pre>';
+    print_r($foo->count());
+echo '<pre>';

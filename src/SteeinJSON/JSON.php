@@ -1,6 +1,7 @@
 <?php
 namespace SteeinJSON;
 
+use Countable;
 use JsonSchema\Constraints\Factory;
 use JsonSchema\SchemaStorage;
 use JsonSchema\Validator;
@@ -23,7 +24,7 @@ use SteeinJSON\Stub\DummyClass;
  * @copyright   2017 - Steein Inc
  * @version     PHP 7 >=
  */
-class JSON extends JSONConfig
+class JSON extends JSONConfig implements Countable
 {
     /***
      * The array to store all the data
@@ -364,5 +365,19 @@ class JSON extends JSONConfig
         }
 
         return $result;
+    }
+
+    /**
+     * Count elements of an object
+     *
+     * @return int
+     * @throws \ErrorException
+     */
+    public function count()
+    {
+        if(!isset($this->storage))
+            throw new \ErrorException("The store did not match");
+        else
+            return \count((array)$this->storage);
     }
 }
